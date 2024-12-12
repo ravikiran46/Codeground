@@ -1,24 +1,24 @@
 export const languageoptions = [
   {
-    id: 1,
+    id: 62,
     label: "java",
     value: "java",
-    bpc: '\nclass Solution { \n public static void main(String args[]){\n    System.out.println("Hello World!");\n  }\n} ',
+    bpc: 'class Main { \n public static void main(String args[]){\n    System.out.println("Hello World!");\n  }\n} ',
   },
   {
-    id: 2,
+    id: 71,
     label: "python",
     value: "python",
     bpc: 'print("Hello World!")',
   },
   {
-    id: 3,
+    id: 53,
     label: "c++",
     value: "c++",
-    bpc: 'int main() {\n   std::cout << "Hello World!\n";\n}',
+    bpc: '#include <iostream> \nint main() {\n   std::cout << "Hello World!";\n}',
   },
   {
-    id: 4,
+    id: 63,
     label: "javascript",
     value: "javascript",
     bpc: "(function main() {\n  console.log('Hello Wolrd!');\n}());",
