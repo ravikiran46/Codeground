@@ -7,14 +7,13 @@ const CodeEditor = ({ language, code, onChange }) => {
   monaco?.editor.defineTheme("githubdark", theme);
 
   const handleEditorcode = (value) => {
-    // setcontent(value);
     onChange("code", value);
   };
   return (
-    <div className="overlay border-2 overflow-hidden w-full h-full ">
+    <div className="w-full h-full overflow-hidden border-2 overlay ">
       <Editor
         theme="githubdark"
-        height="85vh"
+        height="80vh"
         width={"100%"}
         language={language || "java"}
         value={code}

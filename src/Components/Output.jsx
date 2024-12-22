@@ -4,13 +4,13 @@ const Output = ({ outputdetails }) => {
     let statid = outputdetails?.status?.id;
     if (statid === 6) {
       return (
-        <pre className="px-2 py-1 font-normal text-xs text-red-500">
+        <pre className="px-2 py-1 text-xs font-normal text-red-500">
           {atob(outputdetails?.compile_output)}
         </pre>
       );
     } else if (statid === 3) {
       return (
-        <pre className="px-2 py-1 font-normal text-xs ">
+        <pre className="px-2 py-1 text-xs font-normal ">
           {atob(outputdetails?.stdout) !== null
             ? `${atob(outputdetails.stdout)}`
             : null}
@@ -18,13 +18,13 @@ const Output = ({ outputdetails }) => {
       );
     } else if (statid === 5) {
       return (
-        <pre className="px-2 py-1 font-normal text-xs text-red-500">
+        <pre className="px-2 py-1 text-xs font-normal text-red-500">
           {"Time limit exceeded"}
         </pre>
       );
     } else {
       return (
-        <pre className="px-2 py-1 font-normal text-xs text-red-500">
+        <pre className="px-2 py-1 text-xs font-normal text-red-500">
           {atob(outputdetails?.stderr)}
         </pre>
       );
@@ -32,8 +32,8 @@ const Output = ({ outputdetails }) => {
   };
   return (
     <div>
-      <h1 className="text-xl font-mono">output</h1>
-      <div className="w-full h-56 rounded-md font-normal text-sm overflow-y-auto border-2 bg-slate-100">
+      <h1 className="mb-1 font-mono text-xl">Output</h1>
+      <div className="w-full h-56 overflow-y-auto text-sm font-normal border-2 rounded-md bg-slate-100">
         {outputdetails ? <>{getoutput()}</> : null}
       </div>
     </div>
