@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
 
 const Title = ({ title, settitle }) => {
@@ -7,6 +8,9 @@ const Title = ({ title, settitle }) => {
   const [isediting, setisediting] = useState(false);
   const handleEditClick = () => {
     setisediting(true);
+    toast("Hit enter to save", {
+      icon: "👋",
+    });
     setinputval(title);
   };
   const handleInputChange = (e) => {
