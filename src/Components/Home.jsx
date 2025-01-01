@@ -201,24 +201,23 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col w-full p-4 ml-5 space-y-4 font-mono">
-      <div className="">
-        <div className="flex flex-wrap items-center gap-8">
-          <Title title={title} settitle={settitle} />
+    <div className="flex flex-col w-full p-4 space-y-4 font-mono">
+      <div className="flex flex-wrap items-center gap-6">
+        <Title title={title} settitle={settitle} />
+        <div className="flex flex-wrap items-center gap-4">
           <button
             onClick={handleSave}
-            className="p-2 transition duration-200 border rounded-lg border-zinc-300 hover:shadow"
+            className="p-2 border rounded-lg border-zinc-300 hover:shadow"
           >
             Save
           </button>
-          <Language onSelectChange={onSelectChange} defaultvalue={language} />
+          <div className="w-fit sm:w-auto">
+            <Language onSelectChange={onSelectChange} defaultvalue={language} />
+          </div>
           <button
             onClick={handleCompile}
-            className={
-              loading
-                ? "animate-pulse pl-5 pr-5 pt-2 pb-2  text-white transition duration-200 bg-green-500 border rounded-lg hover:shadow"
-                : "pl-5 pr-5 pt-2 pb-2  text-white transition duration-200 bg-green-500 border rounded-lg  hover:shadow"
-            }
+            className={`pl-5 pr-5 pt-2 pb-2  text-white transition duration-200 bg-green-500 border rounded-lg  hover:shadow
+              ${loading ? "animate-pulse" : ""} `}
           >
             Run
           </button>
@@ -250,19 +249,19 @@ const Home = () => {
           />
         </div>
 
-        <div className="flex flex-row w-full gap-4 space-y-0 md:flex-col md:space-y-4 md:w-1/3 ">
+        <div className="flex flex-col gap-4 space-y-0 md:space-y-4 md:w-1/3 ">
           <div className="flex flex-col">
             <h1 className="mb-1 font-mono text-lg">Input</h1>
             <textarea
               rows={5}
               onChange={(e) => setinput(e.target.value)}
               placeholder="Provide input here"
-              className="px-4 py-2 transition duration-200 bg-white border border-black rounded-md focus:outline-none hover:shadow"
+              className="px-4 py-2 bg-white border border-black rounded-md focus:outline-none hover:shadow"
             ></textarea>
           </div>
 
           <div>
-            <Output outputdetails={output} />
+            <Output outputdetails={output} loading={loading} />
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ const Language = ({ onSelectChange, defaultvalue }) => {
   return (
     <Select
       options={languageoptions}
-      className="border-zinc-300"
+      className="w-full rounded-lg border-zinc-300 sm:w-fit"
       defaultValue={defaultvalue}
       onChange={(selectedoptions) => onSelectChange(selectedoptions)}
     />
