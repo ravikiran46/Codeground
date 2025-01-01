@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../Context/useAuth";
 import toast from "react-hot-toast";
 import api from "../Api/api_instance";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -12,6 +13,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
@@ -50,7 +52,7 @@ const Login = () => {
             if (res.status === 200) {
               login(res.data.token);
               localStorage.setItem("user_details", res.data.user.username);
-              location.href = "/mycodes";
+              navigate("/mycodes");
             }
           },
           error: (err) => {
