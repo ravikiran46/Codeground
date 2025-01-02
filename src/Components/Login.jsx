@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../Context/useAuth";
 import toast from "react-hot-toast";
 import api from "../Api/api_instance";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isRegistering, setIsRegistering] = useState(false);

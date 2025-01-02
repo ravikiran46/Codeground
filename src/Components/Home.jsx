@@ -4,7 +4,7 @@ import Language from "./Language";
 import { languageoptions } from "../constants/languageoptions";
 import Output from "./Output";
 import axios from "axios";
-import { Link, useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router-dom";
 import Title from "./Title";
 import api from "../Api/api_instance";
 

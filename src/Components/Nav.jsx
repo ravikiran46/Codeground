@@ -1,5 +1,5 @@
 import useAuth from "../Context/useAuth";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const { logout } = useAuth();

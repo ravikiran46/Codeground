@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import useAuth from "../Context/useAuth";
 import Nav from "./Nav";
 import { useEffect, useState } from "react";
@@ -39,13 +39,22 @@ const CodesList = () => {
       return;
     }
     try {
-      await api.delete(`/codes/${code._id}`, {
+      const res = await api.delete(`/codes/${code._id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      alert("Code deleted successfully.");
-      setCodes(codes.filter((item) => item.id !== code._id));
+      if (res.status === 200) {
+        alert("Code deleted successfully.");
+        setLoading(true);
+        const res = await api.get("/codes/all", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setLoading(false);
+        setCodes(res.data.codes);
+      }
     } catch (err) {
       console.error(err);
       alert("Failed to delete the code. Please try again.");

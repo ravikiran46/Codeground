@@ -8,9 +8,14 @@ const Title = ({ title, settitle }) => {
   const [isediting, setisediting] = useState(false);
   const handleEditClick = () => {
     setisediting(true);
-    toast("Hit enter to save", {
-      icon: "👋",
-    });
+    toast(
+      <div>
+        Hit <b>Enter</b> to save title
+      </div>,
+      {
+        icon: "👋",
+      }
+    );
     setinputval(title);
   };
   const handleInputChange = (e) => {
@@ -25,6 +30,9 @@ const Title = ({ title, settitle }) => {
     if (e.key === "Enter") {
       handleSave();
     }
+  };
+  const handleblur = () => {
+    handleSave();
   };
   return (
     <>
@@ -41,6 +49,7 @@ const Title = ({ title, settitle }) => {
           value={inputval}
           onChange={handleInputChange}
           onKeyUp={handleKeyPress}
+          onBlur={handleblur}
           className="p-1 border rounded"
           autoFocus // Focus on input when editing
         />
